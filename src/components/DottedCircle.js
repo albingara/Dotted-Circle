@@ -35,8 +35,8 @@ const DottedCircle = ({ numberOfLines, activeLines }) => {
           />
         );
       })}
-      <text className="value" x="50%" y="50%" text-anchor="middle">{count}</text>
-      <text className="range" x="50%" y="60%" text-anchor="middle">OF {numberOfLines}</text>
+      <text className="value" x="50%" y="50%" textAnchor="middle">{count}</text>
+      <text className="range" x="50%" y="60%" textAnchor="middle">OF {numberOfLines}</text>
     </svg>
   );
 };
