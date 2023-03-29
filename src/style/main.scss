@@ -11,10 +11,10 @@
 .container {
     background-color: $primary-background;
     height: 100vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10%;
 
     .wrapper {
         background: $secondary-background;
@@ -26,11 +26,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 15px;
         padding: 50px;
+        height: 100%;
 
         h1,
         h2 {
             color: $white;
+            text-align: center;
         }
 
         h1 {
@@ -52,9 +55,6 @@
         }
 
         svg {
-
-            width: 800px;
-            height: auto;
             animation: svg-element ease-out 0.5s;
 
             line {
