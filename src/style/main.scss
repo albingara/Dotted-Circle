@@ -14,7 +14,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10%;
 
     .wrapper {
         background: $secondary-background;
@@ -28,7 +27,8 @@
         justify-content: center;
         gap: 15px;
         padding: 50px;
-        height: 100%;
+        height: 600px;
+        width: 600px;
 
         h1,
         h2 {
@@ -38,12 +38,12 @@
 
         h1 {
             font-weight: 500;
-            font-size: 36px;
+            font-size: 28px;
         }
 
         h2 {
             font-weight: 300;
-            font-size: 26px;
+            font-size: 20px;
 
             span {
                 font-weight: 600;
