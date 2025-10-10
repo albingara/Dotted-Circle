@@ -1,0 +1,53 @@
+@import "../style/colors.scss";
+
+.dotted-circle {
+  animation: svg-element ease-out 0.5s;
+
+  line {
+    transform-origin: center;
+    stroke: $main-shade;
+    animation: line-rotation ease-in 0.5s;
+    // stroke-width is handled in JSX with 20% larger for active lines
+
+    &.active {
+      stroke: $main;
+    }
+  }
+
+  // Conditional stroke-linecap based on lineCap prop
+  &.square line {
+    stroke-linecap: square;
+  }
+
+  &.round line {
+    stroke-linecap: round;
+  }
+
+  text {
+    &.value {
+      font-weight: 450;
+      font-size: 94px;
+      fill: $main;
+    }
+
+    &.range {
+      font-size: 32px;
+      fill: $main-shade;
+    }
+  }
+}
+
+// Animations
+@keyframes svg-element {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes line-rotation {
+  from {
+    transform: rotate(0deg);
+    stroke: 0;
+  }
+}

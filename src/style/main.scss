@@ -9,7 +9,7 @@
 }
 
 .container {
-    background-color: $primary-background;
+    background: $primary-background;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -53,56 +53,5 @@
                 }
             }
         }
-
-        svg {
-            animation: svg-element ease-out 0.5s;
-
-            line {
-
-                transform-origin: center;
-                stroke: $main-shade;
-                stroke-width: 6; // stroke-width can be set directly in the Component or here
-                animation: line-rotation ease-in 0.5s;
-                stroke-linecap: square; // stroke-linecap can be set directly in the Component or here, and it also can be changed to round or completely removed
-
-                &.active {
-                    stroke: $main;
-                    stroke-width: 10;
-                }
-
-            }
-
-            text {
-
-                &.value {
-                    font-weight: 450;
-                    font-size: 94px;
-                    fill: $main;
-                }
-
-                &.range {
-                    font-size: 32px;
-                    fill: $main-shade;
-                }
-            }
-
-        }
-
-    }
-}
-
-// Animations
-
-@keyframes svg-element {
-    from {
-        transform: scale(0);
-        opacity: 0;
-    }
-}
-
-@keyframes line-rotation {
-    from {
-        transform: rotate(0deg);
-        stroke: 0;
     }
 }
