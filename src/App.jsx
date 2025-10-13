@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import DottedCircle from "./components/DottedCircle/DottedCircle.jsx";
 import ControlPanel from "./components/DottedCircle/ControlPanel/ControlPanel.jsx";
 import { LineCap } from "./components/DottedCircle/DottedCircle.jsx";
+import "./style/main.scss";
 
 const App = () => {
   const [numberOfLines, setNumberOfLines] = useState(28);

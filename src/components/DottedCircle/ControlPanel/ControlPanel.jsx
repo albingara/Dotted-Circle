@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./ContolPanel.scss";
 
 const ControlPanel = ({
   numberOfLines,
