@@ -1,57 +1,90 @@
-@import 'colors.scss';
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "colors.scss";
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Chakra Petch', sans-serif;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Chakra Petch", sans-serif;
+  box-sizing: border-box;
 }
 
 .container {
-    background: $primary-background;
-    height: 100vh;
+  background: #0c1713;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 50px;
+
+  .wrapper {
+    background: $secondary-background;
+    border-width: 1px 4px 4px 1px;
+    border-style: solid;
+    border-color: rgba(47, 170, 141, 0.5);
+    box-shadow: 0px 50px 50px 50px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 15px;
+    padding: 50px;
+    height: 600px;
+    width: 600px;
+    border-radius: 50px;
+
+    background: linear-gradient(180deg, #0c1713 0%, rgb(4, 11, 5) 100%);
+
+    h1,
+    h2 {
+      color: $white;
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 28px;
+    }
+
+    h2 {
+      font-weight: 300;
+      font-size: 20px;
+
+      span {
+        font-weight: 600;
+
+        &:first-of-type {
+          color: $main;
+        }
+      }
+    }
+  }
+
+  // Responsive layout
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
 
     .wrapper {
-        background: $secondary-background;
-        border-width: 0px 2px 2px 0px;
-        border-style: solid;
-        border-color: $main;
-        box-shadow: 0px 50px 50px 50px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        padding: 50px;
-        height: 600px;
-        width: 600px;
-
-        h1,
-        h2 {
-            color: $white;
-            text-align: center;
-        }
-
-        h1 {
-            font-weight: 500;
-            font-size: 28px;
-        }
-
-        h2 {
-            font-weight: 300;
-            font-size: 20px;
-
-            span {
-                font-weight: 600;
-
-                &:first-of-type {
-                    color: $main;
-                }
-            }
-        }
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      min-height: 500px;
     }
+  }
+
+  @media (max-width: 768px) {
+    .wrapper {
+      padding: 30px 20px;
+
+      h1 {
+        font-size: 24px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+    }
+  }
 }

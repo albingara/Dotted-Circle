@@ -1,0 +1,292 @@
+@import "../style/colors.scss";
+
+.control-panel {
+  border-radius: 50px;
+
+  background: rgb(4, 11, 5);
+  padding: 30px;
+  width: 450px;
+  height: 600px;
+  box-shadow: 0px 50px 50px 50px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+
+  h3 {
+    color: $white;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    border-bottom: 1px solid $main-shade;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    flex-shrink: 0;
+  }
+
+  .control-panel-content {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    h4 {
+      color: $main;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .control-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(47, 170, 141, 0.2);
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      label {
+        display: block;
+        color: $white;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .value-display {
+        color: $main;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .help-text {
+        color: $main-shade;
+        font-size: 12px;
+        font-style: italic;
+        display: block;
+      }
+    }
+
+    // Custom Slider Styles
+    .slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: $main-shade;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: lighten($main-shade, 10%);
+      }
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: $main;
+        cursor: pointer;
+        border: 2px solid $white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+          box-shadow: 0 4px 12px rgba(47, 170, 141, 0.4);
+        }
+      }
+
+      &::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: $main;
+        cursor: pointer;
+        border: 2px solid $white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+          box-shadow: 0 4px 12px rgba(47, 170, 141, 0.4);
+        }
+      }
+
+      &::-moz-range-track {
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        background: $main-shade;
+        border: none;
+      }
+    }
+
+    // Toggle Buttons
+    .toggle-buttons {
+      display: flex;
+      gap: 8px;
+
+      .toggle-btn {
+        flex: 1;
+        padding: 10px 16px;
+        background: $main-shade;
+        color: $white;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: 100px;
+        border: none;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: lighten($main-shade, 10%);
+          transform: translateY(-1px);
+        }
+
+        &:active {
+          transform: translateY(1px);
+        }
+
+        &.active {
+          background: $main;
+        }
+      }
+    }
+
+    // Color Controls Row
+    .color-controls-row {
+      display: flex;
+      gap: 20px;
+
+      .control-group {
+        flex: 1;
+      }
+    }
+
+    // Color Input Group
+    .color-input-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .color-picker {
+        width: 50px;
+        height: 40px;
+        border: 2px solid $main-shade;
+        border-radius: 6px;
+        cursor: pointer;
+        background: none;
+        padding: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+
+        &:hover {
+          border-color: $main;
+          transform: scale(1.05);
+        }
+
+        &::-webkit-color-swatch-wrapper {
+          padding: 0;
+        }
+
+        &::-webkit-color-swatch {
+          border: none;
+          border-radius: 4px;
+        }
+
+        &::-moz-color-swatch {
+          border: none;
+          border-radius: 4px;
+        }
+      }
+
+      .color-value {
+        color: $main;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        font-weight: 600;
+        background: rgba(47, 170, 141, 0.1);
+        padding: 6px 10px;
+        border-radius: 4px;
+        border: 1px solid rgba(47, 170, 141, 0.3);
+      }
+    }
+
+    // Scrollbar Styling
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(47, 170, 141, 0.1);
+      border-radius: 4px;
+      margin: 4px 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, $main 0%, lighten($main, 15%) 100%);
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        background: linear-gradient(
+          180deg,
+          lighten($main, 5%) 0%,
+          lighten($main, 20%) 100%
+        );
+        box-shadow: 0 4px 8px rgba(47, 170, 141, 0.3);
+      }
+
+      &:active {
+        background: linear-gradient(180deg, darken($main, 5%) 0%, $main 100%);
+      }
+    }
+
+    &::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .control-panel {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    border-left: 2px solid $main;
+    border-top: none;
+
+    .color-controls-row {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .control-panel {
+    .color-controls-row {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+}

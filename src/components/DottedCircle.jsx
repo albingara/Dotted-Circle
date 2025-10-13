@@ -8,14 +8,22 @@ export const LineCap = {
   ROUND: "round",
 };
 
-const DottedCircle = ({ numberOfLines, activeLines, lineCap, strokeWidth }) => {
+const DottedCircle = ({ 
+  numberOfLines, 
+  activeLines, 
+  lineCap, 
+  strokeWidth, 
+  activeColor, 
+  inactiveColor, 
+  animationSpeed,
+  startingLinePoint,
+  lineLength
+}) => {
   const [count, setCount] = useState(0);
 
   // Memoize constants to avoid recalculation on every render
-  const { startingLinePoint, lineLength, angleStep } = useMemo(
+  const { angleStep } = useMemo(
     () => ({
-      startingLinePoint: 20,
-      lineLength: 45,
       angleStep: 360 / numberOfLines,
     }),
     [numberOfLines]
@@ -29,9 +37,9 @@ const DottedCircle = ({ numberOfLines, activeLines, lineCap, strokeWidth }) => {
   }, [count, activeLines]);
 
   useEffect(() => {
-    const interval = setInterval(animateCounter, 20);
+    const interval = setInterval(animateCounter, animationSpeed);
     return () => clearInterval(interval);
-  }, [animateCounter]);
+  }, [animateCounter, animationSpeed]);
 
   // Reset counter when activeLines changes
   useEffect(() => {
@@ -58,6 +66,9 @@ const DottedCircle = ({ numberOfLines, activeLines, lineCap, strokeWidth }) => {
           transform={`rotate(${angle})`}
           className={isActive ? "active" : ""}
           strokeWidth={currentStrokeWidth}
+          style={{
+            stroke: isActive ? activeColor : inactiveColor
+          }}
         />
       );
     });
@@ -68,6 +79,8 @@ const DottedCircle = ({ numberOfLines, activeLines, lineCap, strokeWidth }) => {
     startingLinePoint,
     lineLength,
     strokeWidth,
+    activeColor,
+    inactiveColor,
   ]);
 
   return (
@@ -84,6 +97,7 @@ const DottedCircle = ({ numberOfLines, activeLines, lineCap, strokeWidth }) => {
         y="52%"
         textAnchor="middle"
         aria-hidden="true"
+        style={{ fill: activeColor }}
       >
         {count}
       </text>
@@ -93,6 +107,7 @@ const DottedCircle = ({ numberOfLines, activeLines, lineCap, strokeWidth }) => {
         y="62%"
         textAnchor="middle"
         aria-hidden="true"
+        style={{ fill: inactiveColor }}
       >
         OF {numberOfLines}
       </text>
@@ -105,6 +120,11 @@ DottedCircle.propTypes = {
   activeLines: PropTypes.number.isRequired,
   lineCap: PropTypes.oneOf([LineCap.SQUARE, LineCap.ROUND]),
   strokeWidth: PropTypes.number,
+  activeColor: PropTypes.string,
+  inactiveColor: PropTypes.string,
+  animationSpeed: PropTypes.number,
+  startingLinePoint: PropTypes.number,
+  lineLength: PropTypes.number,
 };
 
 DottedCircle.defaultProps = {
@@ -112,6 +132,11 @@ DottedCircle.defaultProps = {
   activeLines: 12,
   strokeWidth: 10,
   lineCap: LineCap.SQUARE,
+  activeColor: "#2faa8d",
+  inactiveColor: "#525b58",
+  animationSpeed: 20,
+  startingLinePoint: 20,
+  lineLength: 45,
 };
 
 export default DottedCircle;
