@@ -1,16 +1,14 @@
-@import "../style/colors.scss";
-
 .dotted-circle {
   animation: svg-element ease-out 0.5s;
 
   line {
     transform-origin: center;
-    stroke: $main-shade;
+    stroke: rgba(82, 91, 88, 1);
     animation: line-rotation ease-in 0.5s;
     // stroke-width is handled in JSX with 20% larger for active lines
 
     &.active {
-      stroke: $main;
+      stroke: rgba(47, 170, 141, 1);
     }
   }
 
@@ -27,12 +25,12 @@
     &.value {
       font-weight: 450;
       font-size: 94px;
-      fill: $main;
+      fill: rgba(47, 170, 141, 1);
     }
 
     &.range {
       font-size: 32px;
-      fill: $main-shade;
+      fill: rgba(82, 91, 88, 1);
     }
   }
 }
