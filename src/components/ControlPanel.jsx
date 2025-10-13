@@ -54,7 +54,7 @@ const ControlPanel = ({
             type="range"
             min="0"
             max={numberOfLines}
-            value={activeLines}
+            value={Math.min(activeLines, numberOfLines)}
             onChange={(e) => setActiveLines(parseInt(e.target.value))}
             className="slider"
           />

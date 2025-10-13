@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style/main.scss";
 import DottedCircle from "./components/DottedCircle.jsx";
 import ControlPanel from "./components/ControlPanel.jsx";
@@ -7,6 +7,29 @@ import { LineCap } from "./components/DottedCircle.jsx";
 const App = () => {
   const [numberOfLines, setNumberOfLines] = useState(28);
   const [activeLines, setActiveLines] = useState(24);
+
+  // Handle numberOfLines change with validation
+  const handleNumberOfLinesChange = (newNumberOfLines) => {
+    setNumberOfLines(newNumberOfLines);
+    // If active lines exceed the new number of lines, adjust it
+    if (activeLines > newNumberOfLines) {
+      setActiveLines(newNumberOfLines);
+    }
+  };
+
+  // Handle activeLines change with validation
+  const handleActiveLinesChange = (newActiveLines) => {
+    // Ensure active lines never exceed number of lines
+    const clampedActiveLines = Math.min(newActiveLines, numberOfLines);
+    setActiveLines(clampedActiveLines);
+  };
+
+  // Ensure active lines are valid on component mount
+  useEffect(() => {
+    if (activeLines > numberOfLines) {
+      setActiveLines(numberOfLines);
+    }
+  }, []);
   const [strokeWidth, setStrokeWidth] = useState(10);
   const [lineCap, setLineCap] = useState(LineCap.SQUARE);
   const [activeColor, setActiveColor] = useState("#2faa8d");
@@ -37,9 +60,9 @@ const App = () => {
       </div>
       <ControlPanel
         numberOfLines={numberOfLines}
-        setNumberOfLines={setNumberOfLines}
+        setNumberOfLines={handleNumberOfLinesChange}
         activeLines={activeLines}
-        setActiveLines={setActiveLines}
+        setActiveLines={handleActiveLinesChange}
         strokeWidth={strokeWidth}
         setStrokeWidth={setStrokeWidth}
         lineCap={lineCap}
