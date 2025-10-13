@@ -17,7 +17,8 @@ const DottedCircle = ({
   inactiveColor, 
   animationSpeed,
   startingLinePoint,
-  lineLength
+  lineLength,
+  lineX1
 }) => {
   const [count, setCount] = useState(0);
 
@@ -41,10 +42,10 @@ const DottedCircle = ({
     return () => clearInterval(interval);
   }, [animateCounter, animationSpeed]);
 
-  // Reset counter when activeLines changes
+  // Reset counter when activeLines or numberOfLines changes
   useEffect(() => {
     setCount(0);
-  }, [activeLines]);
+  }, [activeLines, numberOfLines]);
 
   // Memoize the lines array to avoid recreating on every render
   const lines = useMemo(() => {
@@ -59,10 +60,10 @@ const DottedCircle = ({
       return (
         <line
           key={i}
-          x1="250"
-          x2="250"
+          x1={lineX1}
+          x2={lineX1}
           y1={startingLinePoint}
-          y2={lineLength}
+          y2={startingLinePoint + lineLength}
           transform={`rotate(${angle})`}
           className={isActive ? "active" : ""}
           strokeWidth={currentStrokeWidth}
@@ -78,6 +79,7 @@ const DottedCircle = ({
     angleStep,
     startingLinePoint,
     lineLength,
+    lineX1,
     strokeWidth,
     activeColor,
     inactiveColor,
@@ -125,6 +127,7 @@ DottedCircle.propTypes = {
   animationSpeed: PropTypes.number,
   startingLinePoint: PropTypes.number,
   lineLength: PropTypes.number,
+  lineX1: PropTypes.number,
 };
 
 DottedCircle.defaultProps = {
@@ -137,6 +140,7 @@ DottedCircle.defaultProps = {
   animationSpeed: 20,
   startingLinePoint: 20,
   lineLength: 45,
+  lineX1: 250,
 };
 
 export default DottedCircle;

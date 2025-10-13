@@ -37,6 +37,7 @@ const App = () => {
   const [animationSpeed, setAnimationSpeed] = useState(20);
   const [startingLinePoint, setStartingLinePoint] = useState(20);
   const [lineLength, setLineLength] = useState(45);
+  const [lineX1, setLineX1] = useState(250);
 
   return (
     <div className="container">
@@ -52,6 +53,7 @@ const App = () => {
           animationSpeed={animationSpeed}
           startingLinePoint={startingLinePoint}
           lineLength={lineLength}
+          lineX1={lineX1}
         />
         <h2>
           You have completed <span>{activeLines}</span> of{" "}
@@ -77,6 +79,8 @@ const App = () => {
         setStartingLinePoint={setStartingLinePoint}
         lineLength={lineLength}
         setLineLength={setLineLength}
+        lineX1={lineX1}
+        setLineX1={setLineX1}
       />
     </div>
   );

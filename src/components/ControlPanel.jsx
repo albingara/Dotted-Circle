@@ -21,6 +21,8 @@ const ControlPanel = ({
   setStartingLinePoint,
   lineLength,
   setLineLength,
+  lineX1,
+  setLineX1,
 }) => {
   return (
     <div className="control-panel">
@@ -82,10 +84,25 @@ const ControlPanel = ({
           <input
             id="lineLength"
             type="range"
-            min="20"
+            min="1"
             max="80"
             value={lineLength}
             onChange={(e) => setLineLength(parseInt(e.target.value))}
+            className="slider"
+          />
+        </div>
+
+        <div className="control-group">
+          <label htmlFor="lineX1">
+            Line X Position: <span className="value-display">{lineX1}px</span>
+          </label>
+          <input
+            id="lineX1"
+            type="range"
+            min="150"
+            max="350"
+            value={lineX1}
+            onChange={(e) => setLineX1(parseInt(e.target.value))}
             className="slider"
           />
         </div>
@@ -208,6 +225,8 @@ ControlPanel.propTypes = {
   setStartingLinePoint: PropTypes.func.isRequired,
   lineLength: PropTypes.number.isRequired,
   setLineLength: PropTypes.func.isRequired,
+  lineX1: PropTypes.number.isRequired,
+  setLineX1: PropTypes.func.isRequired,
 };
 
 export default ControlPanel;
