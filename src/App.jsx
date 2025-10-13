@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import "./style/main.scss";
-import DottedCircle from "./components/DottedCircle.jsx";
-import ControlPanel from "./components/ControlPanel.jsx";
-import { LineCap } from "./components/DottedCircle.jsx";
+import { useState, useEffect } from "react";
+import DottedCircle from "./components/DottedCircle/DottedCircle.jsx";
+import ControlPanel from "./components/DottedCircle/ControlPanel/ControlPanel.jsx";
+import { LineCap } from "./components/DottedCircle/DottedCircle.jsx";
 
 const App = () => {
   const [numberOfLines, setNumberOfLines] = useState(28);
@@ -43,8 +42,8 @@ const App = () => {
     <div className="container">
       <div className="wrapper">
         <h1>Task Completion Goal</h1>
-        <DottedCircle 
-          numberOfLines={numberOfLines} 
+        <DottedCircle
+          numberOfLines={numberOfLines}
           activeLines={activeLines}
           strokeWidth={strokeWidth}
           lineCap={lineCap}

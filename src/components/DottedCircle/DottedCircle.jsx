@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import "./DottedCircle.scss";
 
@@ -8,17 +8,17 @@ export const LineCap = {
   ROUND: "round",
 };
 
-const DottedCircle = ({ 
-  numberOfLines, 
-  activeLines, 
-  lineCap, 
-  strokeWidth, 
-  activeColor, 
-  inactiveColor, 
+const DottedCircle = ({
+  numberOfLines,
+  activeLines,
+  lineCap,
+  strokeWidth,
+  activeColor,
+  inactiveColor,
   animationSpeed,
   startingLinePoint,
   lineLength,
-  lineX1
+  lineX1,
 }) => {
   const [count, setCount] = useState(0);
 
@@ -68,7 +68,7 @@ const DottedCircle = ({
           className={isActive ? "active" : ""}
           strokeWidth={currentStrokeWidth}
           style={{
-            stroke: isActive ? activeColor : inactiveColor
+            stroke: isActive ? activeColor : inactiveColor,
           }}
         />
       );
