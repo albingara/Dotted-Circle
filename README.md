@@ -1,9 +1,8 @@
-<img width="3200" height="2400" alt="image" src="https://github.com/user-attachments/assets/07de275a-96a1-4d48-bc74-c04df56125e1" />
-
-
 # Dotted Circle
 
 A React.js application featuring a dynamic dotted circle with customizable animations and interactive controls.
+
+![Dotted Circle Chart Preview](public/Preview.jpg)
 
 ## Features
 
