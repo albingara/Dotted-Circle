@@ -1,3 +1,16 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow access to build artifacts and development files
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /src/
+
+# Allow access to static assets
+Allow: /favicon.svg
+Allow: /robots.txt
+
+# Crawl delay (optional)
+Crawl-delay: 1

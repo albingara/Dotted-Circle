@@ -2,6 +2,7 @@
   "name": "dotted-circle",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
